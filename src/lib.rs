@@ -87,6 +87,10 @@ struct Page {
     referenced: AtomicBool,
 }
 
+pub trait PageLoader<T: Copy + Sync + Send + 'static> {
+    fn load(&mut self) -> Vec<T>;
+    fn unload(&mut self, data: Vec<T>);
+}
 enum PageTableEntryStatus {
     Mapped(usize),
     Unloaded(std::fs::File),

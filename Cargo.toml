@@ -8,3 +8,8 @@ edition = "2021"
 [dependencies]
 tempfile = "3"
 parking_lot = "*"
+region = "3"
+
+[[bench]]
+name="bench"
+path="src/bench.rs"
